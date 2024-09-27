@@ -14,7 +14,7 @@ a mensagem personalizada na tela.
 
 Dica: A função exibirMensagem não devolve nenhum valor, apenas imprime uma mensagem usando o nome fornecido pelo usuário.
 */
-void exibirMensagem(char nome[], int tamanho);
+void exibirMensagem(char nome[], int tamanhoMaximo);
 
 int main() {
     char letraInformadaPeloUsuario;
@@ -37,12 +37,3 @@ int main() {
     return 0;
 }
 
-void exibirMensagem(char nome[], int tamanho) {
-    printf("Bem-vindo, [");
-
-    for (int indice = 0; indice < tamanho; indice++) {
-        printf("%c", nome[indice]);
-    }
-
-    printf("]!\n");
-}

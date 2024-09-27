@@ -13,27 +13,41 @@ Dica:  A fórmula da média de três números é (n1 + n2 + n3) / 3..
 
 */
 #include <stdio.h>
-
+float obtemOPrimeiroNumeroDoUsuario();
+float obtemOSegundoNumeroDoUsuario();
+float obtemOTerceiroNumeroDoUsuario();
 float calcularMedia(int primeiroNumero, int segundoNumero, int terceiroNumero);
+void mostrarResultadoDaMediaNaTela(float resultadoDaMedia);
 
 int main() {
+    mostrarResultadoDaMediaNaTela(calcularMedia(obtemOPrimeiroNumeroDoUsuario(), obtemOSegundoNumeroDoUsuario(), obtemOTerceiroNumeroDoUsuario()));
+}
+
+float obtemOPrimeiroNumeroDoUsuario(){
     float primeiroNumero;
     printf("Informe o primeiro numero: ");
     scanf("%f", &primeiroNumero);
+    return primeiroNumero; 
+}
 
+float obtemOSegundoNumeroDoUsuario(){
     float segundoNumero;
     printf("Informe o segundo numero: ");
     scanf("%f", &segundoNumero);
+    return segundoNumero; 
+}
 
+float obtemOTerceiroNumeroDoUsuario(){
     float terceiroNumero;
     printf("Informe o terceiro numero: ");
     scanf("%f", &terceiroNumero);
-
-    float resultadoDaMedia = calcularMedia(primeiroNumero, segundoNumero, terceiroNumero);
-
-    printf("O resultado da media com base nos 3 valores informados e: %.2f \n", resultadoDaMedia);
+    return terceiroNumero; 
 }
 
 float calcularMedia(int primeiroNumero, int segundoNumero, int terceiroNumero) {
     return (primeiroNumero + segundoNumero + terceiroNumero) / 3;
+}
+
+void mostrarResultadoDaMediaNaTela(float resultadoDaMedia){
+    printf("O resultado da media com base nos 3 valores informados e: %.2f \n", resultadoDaMedia);
 }

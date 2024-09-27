@@ -13,17 +13,19 @@ chamar exibirBoasVindasMaiorIdade.
 Dica:  Exemplo: Se o usuário digitar 20, o programa deve exibir "Bem-vindo, você é maior de idade!"
 */
 #include <stdio.h>
-
+int obtemIdadeDoUsuario();
 int verificarMaiorIdade(int idadeDoUsuario);
 void exibirBoasVindasMaiorIdade(int eMaiorOuMenorDeIdade);
 
 int main() {
+    exibirBoasVindasMaiorIdade(verificarMaiorIdade(obtemIdadeDoUsuario()));
+}
+
+int obtemIdadeDoUsuario() {
     int idadeDoUsuario;
     printf("Informe a sua idade: ");
     scanf("%i", &idadeDoUsuario);
-
-    int eMaiorOuMenorDeIdade = verificarMaiorIdade(idadeDoUsuario);
-    exibirBoasVindasMaiorIdade(eMaiorOuMenorDeIdade);
+    return idadeDoUsuario;
 }
 
 int verificarMaiorIdade(int idadeDoUsuario) {
