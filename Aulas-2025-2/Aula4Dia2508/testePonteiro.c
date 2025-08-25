@@ -10,7 +10,7 @@ int main() {
     printf("Valor de 'valor' (direto) : %d\n", valor);
     printf("Valor acessado por 'p' : %d\n", *p);
     printf("###########################################\n");
-    // Alterando valor via ponteiro
+    // // Alterando valor via ponteiro
     *p = 10;
     
     // Mostrando endereços e valores depois da alteração
