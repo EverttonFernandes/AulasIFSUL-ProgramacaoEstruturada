@@ -30,25 +30,25 @@ int main(){
 
     printf("Total de caracteres nao alfabeticos removidos: %d\n", totalDeCaracteresRemovidos);
     
-    printf("Texto contendo apenas letras: %s\n", texto);
+    printf("Texto contendo apenas caracteres alfabeticos: %s\n", texto);
     return 0;
 }
 
 int removerNaoAlfabeticos(char *ponteiroComOTextoOriginal, int tamanho){
-    char *novoPonteiroComApenasLetras = ponteiroComOTextoOriginal;
+    char *novoPonteiroComApenasCaracteresAlfabeticos = ponteiroComOTextoOriginal;
     int contadorDeCaracteresRemovidos = 0;
 
     for(int indice = 0; indice < tamanho -1 ; indice++){
         char caractereAtual = *(ponteiroComOTextoOriginal + indice);
         if(isalpha(caractereAtual)){
-            *novoPonteiroComApenasLetras = caractereAtual;
-            novoPonteiroComApenasLetras++;
+            *novoPonteiroComApenasCaracteresAlfabeticos = caractereAtual;
+            novoPonteiroComApenasCaracteresAlfabeticos++;
         } else {
             contadorDeCaracteresRemovidos++;
         }
     }
 
-    *novoPonteiroComApenasLetras = '\0';
-    ponteiroComOTextoOriginal = novoPonteiroComApenasLetras;
+    *novoPonteiroComApenasCaracteresAlfabeticos = '\0';
+    ponteiroComOTextoOriginal = novoPonteiroComApenasCaracteresAlfabeticos;
     return contadorDeCaracteresRemovidos;
 }

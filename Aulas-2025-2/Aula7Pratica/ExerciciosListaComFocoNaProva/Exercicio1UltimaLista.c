@@ -1,5 +1,16 @@
 #include<stdio.h>
+/*
 
+1) Substituir Negativos (float) preenchendo sobras com 0.0
+Objetivo: Em um vetor float, remover valores < 0 e compactar os ≥ 0 para o início; preencher o resto com 0.0.
+Função sugerida: int removerNegativosFloat(float *v, int n);
+
+Regras: dois ponteiros; não criar outro vetor.
+
+Retorno: novo tamanho lógico (quantos ficaram ≥ 0).
+Exemplo: [ -1.5, 2.0, -3.3, 0.1 ] → [ 2.0, 0.1, 0.0, 0.0 ], novo tamanho: 2.
+
+*/
 int removerNegativos(float *ponteiroComOsValoresOriginais, int tamanho);
 
 int main(){
@@ -51,7 +62,7 @@ int removerNegativos(float *ponteiroComOsValoresOriginais, int tamanho){
 
     // o ponteiro ponteiroComFloatsPositivos neste momento está apontando 
     while(ponteiroComFloatsPositivos < ponteiroComOsValoresOriginais + tamanho){ // enquanto o ponteiro com os floats positivos não ter o mesmo tamanho do vetor original
-        *ponteiroComFloatsPositivos = 0.0f; // preenche as posições restantes com 0.0
+        *ponteiroComFloatsPositivos = 0.0; // preenche as posições restantes com 0.0
         ponteiroComFloatsPositivos++; // anda para a próxima posição para preencher com 0.0
     }
 

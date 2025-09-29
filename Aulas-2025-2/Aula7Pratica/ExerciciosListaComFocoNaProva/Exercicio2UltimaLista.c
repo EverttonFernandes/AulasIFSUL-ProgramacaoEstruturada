@@ -19,6 +19,8 @@ int main(){
     int tamanhoMaximo;
     int valores[tamanhoMaximo];
     int quantidade;
+    int limiteInferior;
+    int limiteSuperior;
 
     printf("Quantos valores inteiros deseja informar? ");
     scanf("%d", &tamanhoMaximo);
@@ -28,8 +30,6 @@ int main(){
         scanf("%d", &valores[indice]);
     }
 
-    int limiteInferior;
-    int limiteSuperior;
 
     printf("Informe o primeiro numero que será usado como limite inferior: ");
     scanf("%d", &limiteInferior);
@@ -67,11 +67,13 @@ int filtrarPorFaixa(int *ponteiroComOsValoresOriginais, int tamanho, int limiteI
 
     for(int indice = 0; indice < tamanho; indice++){
         int valorAtual = *(ponteiroComOsValoresOriginais + indice);
+
         if(valorAtual >= limiteInferior && valorAtual <= limiteSuperior){ // se o valor atual for menor que o limite inferior e superior (significa que ele está dentro da faixa)
             *ponteiroComValoresDentroDaFaixa = valorAtual; // atribui este valor que está dentro da faixa ao ponteiro que guarda os valores dentro da faixa
             ponteiroComValoresDentroDaFaixa++; // anda para a próxima posição para se colocar a disposição do um próximo valor que esteja dentro da faixa
             contadorDeNumerosQueEstaoDentroDaFaixa++; // aumenta o contador, justamente porque foi encontrado um valor que está dentro da faixa
         }
+        
     }
 
     while(ponteiroComValoresDentroDaFaixa < ponteiroComOsValoresOriginais + tamanho){ // enquanto o ponteiro com os valores dentro da faixa não ter o mesmo tamanho do vetor original
