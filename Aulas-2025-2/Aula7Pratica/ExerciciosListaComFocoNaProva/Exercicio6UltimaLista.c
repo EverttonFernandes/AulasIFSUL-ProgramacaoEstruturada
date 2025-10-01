@@ -13,7 +13,7 @@ Exemplo: [2,2,2,3,3,1,1,4] → [2,3,1,4,0,0,0,0], novo tamanho: 4.
 #include<stdio.h>
 #include<string.h>
 
-int removerNumerosRepetidos(int * numeros, int tamanho);
+int removerRepeticoesConsecutivas(int *numeros, int tamanho);
 
 int main(){
     int tamanhoMaximo;
@@ -34,7 +34,7 @@ int main(){
     }
     printf("\n");
 
-    int novoTamanho = removerNumerosRepetidos(numeros, tamanhoMaximo);
+    int novoTamanho = removerRepeticoesConsecutivas(numeros, tamanhoMaximo);
 
     printf("Total de numeros MANTIDOS apos remover repeticoes: %d\n", novoTamanho);
     
@@ -47,27 +47,29 @@ int main(){
     return 0;
 }
 
-int removerNumerosRepetidos(int *ponteiroComOsNumerosOriginais, int tamanho){
-    int *novoPonteiroComNumerosUnicos = ponteiroComOsNumerosOriginais;
+int removerRepeticoesConsecutivas(int *ponteiroComOsNumerosOriginais, int tamanho){
+    int *novoPonteiroSemRepeticoesConsecutitivas = ponteiroComOsNumerosOriginais;
     int contadorDeNumerosMantidos = 0;
-    int ultimoValor = 0;
+    int ultimoValor;
 
     for(int indice = 0; indice < tamanho; indice++){
+        
         int valorAtual = *(ponteiroComOsNumerosOriginais + indice);
+        
         if(valorAtual != ultimoValor){
-            *novoPonteiroComNumerosUnicos = valorAtual;
-            novoPonteiroComNumerosUnicos++;
+            *novoPonteiroSemRepeticoesConsecutitivas = valorAtual;
+            novoPonteiroSemRepeticoesConsecutitivas++;
             ultimoValor = valorAtual;
             contadorDeNumerosMantidos++;
         }
+
     }
 
-    // Preenche o restante do vetor com zeros
-    while(novoPonteiroComNumerosUnicos < ponteiroComOsNumerosOriginais + tamanho){
-        *novoPonteiroComNumerosUnicos = 0;
-        novoPonteiroComNumerosUnicos++;
+    while(novoPonteiroSemRepeticoesConsecutitivas < ponteiroComOsNumerosOriginais + tamanho){
+        *novoPonteiroSemRepeticoesConsecutitivas = 0;
+        novoPonteiroSemRepeticoesConsecutitivas++;
     }
 
-    ponteiroComOsNumerosOriginais = novoPonteiroComNumerosUnicos;
+    ponteiroComOsNumerosOriginais = novoPonteiroSemRepeticoesConsecutitivas;
     return contadorDeNumerosMantidos;
 }
