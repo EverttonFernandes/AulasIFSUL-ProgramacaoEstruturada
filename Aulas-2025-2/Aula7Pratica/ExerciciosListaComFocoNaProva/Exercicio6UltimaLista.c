@@ -20,7 +20,7 @@ int main(){
     int numeros[tamanhoMaximo];
     int quantidade;
 
-    printf("Digite a quantidade de numeros ");
+    printf("Digite a quantidade de numeros a serem inseridos:");
     scanf("%d", &tamanhoMaximo);
 
     for(int i = 0; i < tamanhoMaximo; i++){
@@ -36,7 +36,7 @@ int main(){
 
     int novoTamanho = removerRepeticoesConsecutivas(numeros, tamanhoMaximo);
 
-    printf("Total de numeros MANTIDOS apos remover repeticoes: %d\n", novoTamanho);
+    printf("Total de numeros MANTIDOS apos remover repeticoes consecutivas: %d\n", novoTamanho);
     
     printf("Numeros sem repeticoes: ");
     for(int i = 0; i < tamanhoMaximo; i++){
