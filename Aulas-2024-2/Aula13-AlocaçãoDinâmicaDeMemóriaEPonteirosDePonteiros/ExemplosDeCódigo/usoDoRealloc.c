@@ -16,7 +16,7 @@ int main() {
 
     // Inicializa o vetor que pega valores de 1 até 5 que são salvos nas posições 0,1,2,3 e 4.
     for (int i = 0; i < tamanhoInicial; i++) {
-        vetor[i] = i + 1;
+        *(vetor + i ) = i + 1;
     }
 
     printf("Vetor inicial:\n");
@@ -56,6 +56,6 @@ void redimensionarVetor(int **vetor, int tamanhoAtual, int novoTamanho) {
 
     // Inicializa os novos elementos, caso o vetor tenha crescido
     for (int i = tamanhoAtual; i < novoTamanho; i++) {
-        (*vetor)[i] = i + 1; // Exemplo de inicialização
+        *(*vetor + i) = i + 1; // Exemplo de inicialização
     }
 }
