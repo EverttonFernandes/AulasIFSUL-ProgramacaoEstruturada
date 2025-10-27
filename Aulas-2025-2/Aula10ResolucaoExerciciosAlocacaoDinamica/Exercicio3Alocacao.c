@@ -59,8 +59,10 @@ int main(){
     return 0;
 }
 
-char* clonarFrase(char **fraseOriginal, int tamanhoOriginal){
+char *clonarFrase(char **fraseOriginal, int tamanhoOriginal){
     char *fraseClonada = (char *)malloc((tamanhoOriginal + 1) * sizeof(char));
 
-    return strcpy(fraseClonada, *fraseOriginal);
+    strcpy(fraseClonada, *fraseOriginal);
+
+    return fraseClonada;
 }

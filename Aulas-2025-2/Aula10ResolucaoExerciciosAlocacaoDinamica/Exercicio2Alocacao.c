@@ -28,13 +28,13 @@ Saída (>10 e ímpares): [11, 15, 27]
 #include <stdlib.h>
 #include <stddef.h>
 
-int* filtrarImparesMaioresQue10(int **vetorOriginal, int tamanhoOriginal);
+int* filtrarImparesMaioresQue10(int **vetorOriginal, int tamanhoOriginal, int *tamanhoDoVetorDinamicoComParesMaiorQueDez);
 
 int main(){
     int *vetorInicial = NULL;
     int tamanhoInicial = 0;
     int numero;
-
+    int tamanhoDoVetorDinamicoComParesMaiorQueDez = 0;
     printf("Digite inteiros (pressione 0 para parar):\n");
     
     while(1){
@@ -47,12 +47,13 @@ int main(){
         tamanhoInicial++;
     }
 
-    int *retornoDoPonteiro = filtrarImparesMaioresQue10(&vetorInicial, tamanhoInicial);
+    int *retornoDoPonteiro = filtrarImparesMaioresQue10(&vetorInicial, tamanhoInicial, &tamanhoDoVetorDinamicoComParesMaiorQueDez);
 
     printf("Números > 10 e ímpares: \n");
     
+    // variavel tamanhoDoVetorDinamicoComParesMaiorQueDez sendo usada para corrigir eventual lixo de memória ao percorrer o vetor retornado
     if(retornoDoPonteiro != NULL){
-        for (int i = 0; *(retornoDoPonteiro + i) != 0; i++){
+        for (int i = 0; i < tamanhoDoVetorDinamicoComParesMaiorQueDez; i++){ 
             printf("%d ", *(retornoDoPonteiro + i));
         }
     }
@@ -63,16 +64,14 @@ int main(){
     return 0;
 }
 
-int *filtrarImparesMaioresQue10(int **vetorOriginal, int tamanhoOriginal){
+int *filtrarImparesMaioresQue10(int **vetorOriginal, int tamanhoOriginal, int *tamanhoDoVetorDinamicoComParesMaiorQueDez){
     int *vetorComParesMaiorQueDez = NULL;
-    int tamanhoDoVetorDinamicoComParesMaiorQueDez = 0;
-
     for(int i = 0; i < tamanhoOriginal; i++){
         int valorAtual = *(*vetorOriginal + i);
         if(valorAtual > 10 && valorAtual % 2 != 0){
-            vetorComParesMaiorQueDez = (int *)realloc(vetorComParesMaiorQueDez, (tamanhoDoVetorDinamicoComParesMaiorQueDez + 1 ) * sizeof(int));
-            *(vetorComParesMaiorQueDez + tamanhoDoVetorDinamicoComParesMaiorQueDez) = valorAtual;
-            tamanhoDoVetorDinamicoComParesMaiorQueDez++;
+            vetorComParesMaiorQueDez = (int *)realloc(vetorComParesMaiorQueDez, (*tamanhoDoVetorDinamicoComParesMaiorQueDez + 1 ) * sizeof(int));
+            vetorComParesMaiorQueDez[*tamanhoDoVetorDinamicoComParesMaiorQueDez] = valorAtual;
+            (*tamanhoDoVetorDinamicoComParesMaiorQueDez)++;
         }
     }
 
