@@ -24,7 +24,7 @@ Pontuação (60 pts)
 #include <ctype.h>
 
 char *filtrarConsoantesRecursivamente(char **frase, int contadorFrase, char *novaFraseApenasComConsoantes, int tamanhoNovaFrase);
-int ehVogal(char letra);
+int ehConsoante(char caracter);
 
 int main(){
     char *frase = NULL;
@@ -35,14 +35,14 @@ int main(){
     while(1){
         caractere = getchar();
         if(caractere == '\n'){
+            frase = (char *)realloc(frase, (tamanhoFrase + 1) * sizeof(char));
+            *(frase + tamanhoFrase) = '\0';
             break;
         }
         frase = (char *)realloc(frase, (tamanhoFrase + 1) * sizeof(char));
         *(frase + tamanhoFrase) = caractere;
         tamanhoFrase++;
     }
-    frase = (char *)realloc(frase, (tamanhoFrase + 1) * sizeof(char));
-    *(frase + tamanhoFrase) = '\0';
 
     char *fraseFiltrada = filtrarConsoantesRecursivamente(&frase, 0, NULL, 0);
 
@@ -64,7 +64,7 @@ char *filtrarConsoantesRecursivamente(char **frase, int contadorFrase, char *nov
 
 
     if(isalpha(caracterAtual)){
-        if(!ehVogal(caracterAtual)){
+        if(ehConsoante(tolower(caracterAtual))){
             novaFraseApenasComConsoantes = (char *)realloc(novaFraseApenasComConsoantes, (tamanhoNovaFrase + 1) * sizeof(char));
             novaFraseApenasComConsoantes[tamanhoNovaFrase] = caracterAtual;
             tamanhoNovaFrase++;
@@ -77,7 +77,6 @@ char *filtrarConsoantesRecursivamente(char **frase, int contadorFrase, char *nov
 
 }
 
-int ehVogal(char letra) {
-    return (letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u' ||
-            letra == 'A' || letra == 'E' || letra == 'I' || letra == 'O' || letra == 'U');
+int ehConsoante(char caracter) {
+    return (caracter != 'a' && caracter != 'e' && caracter != 'i' && caracter != 'o' && caracter != 'u');
 }
