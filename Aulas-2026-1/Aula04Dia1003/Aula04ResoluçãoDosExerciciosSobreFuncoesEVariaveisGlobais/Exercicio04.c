@@ -19,7 +19,8 @@ void exibirBoasVindasMaiorIdade(int eMaiorOuMenorDeIdade);
 
 int main() {
     int idadeInformada = obtemIdadeDoUsuario();
-    exibirBoasVindasMaiorIdade(verificarMaiorIdade(idadeInformada));
+    int resultadoDaFuncaoMaiorIdade = verificarMaiorIdade(idadeInformada);
+    exibirBoasVindasMaiorIdade(resultadoDaFuncaoMaiorIdade);
 }
 
 int obtemIdadeDoUsuario() {
@@ -30,11 +31,18 @@ int obtemIdadeDoUsuario() {
 }
 
 int verificarMaiorIdade(int idadeDoUsuario) {
-    return idadeDoUsuario >= 18 ? 1 : 0;
+    // return idadeDoUsuario >= 18 ? 1 : 0; // Operador ternário(é o mesmo que if e else)
+    // if tradicional escrito abaixo:
+    if(idadeDoUsuario >=18){
+        return 1;
+    } else {
+        return 0;
+    }
 }
 
 void exibirBoasVindasMaiorIdade(int eMaiorOuMenorDeIdade) {
-    if(eMaiorOuMenorDeIdade){
+    // 1 POR BAIXO DOS PANOS É COMO SE FOSSE UM BOOLEAN  
+    if(eMaiorOuMenorDeIdade == 1){
         printf("Bem vindo, você e maior de idade! \n");
     } else {
         printf("Entrada proibida para menores de 18 anos! \n");

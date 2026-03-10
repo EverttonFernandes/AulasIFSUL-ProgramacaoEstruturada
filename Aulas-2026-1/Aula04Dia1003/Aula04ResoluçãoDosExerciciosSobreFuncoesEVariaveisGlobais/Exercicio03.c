@@ -13,45 +13,47 @@ Dica:  A fórmula da média de três números é (n1 + n2 + n3) / 3..
 
 */
 #include <stdio.h>
-float obtemOPrimeiroNumeroDoUsuario();
-float obtemOSegundoNumeroDoUsuario();
-float obtemOTerceiroNumeroDoUsuario();
-float calcularMedia(int primeiroNumero, int segundoNumero, int terceiroNumero);
+float obtemAPrimeiraNotaInformadaPeloUsuario();
+float obtemASegundaNotaInformadaPeloUsuario();
+float obtemATerceiraNotaInformadaPeloUsuario();
+float calcularMedia(float primeiraNota, float segundaNota, float terceiraNota);
 void mostrarResultadoDaMediaNaTela(float resultadoDaMedia);
 
 int main() {
-    float primeiraNota = obtemOPrimeiroNumeroDoUsuario();
-    float segundaNota = obtemOPrimeiroNumeroDoUsuario();
-    float terceiraNota = obtemOPrimeiroNumeroDoUsuario();
+    float primeiraNota = obtemAPrimeiraNotaInformadaPeloUsuario();
+    float segundaNota = obtemASegundaNotaInformadaPeloUsuario();
+    float terceiraNota = obtemATerceiraNotaInformadaPeloUsuario();
+
     float resultadoDaMedia = calcularMedia(primeiraNota, segundaNota, terceiraNota);
+
     mostrarResultadoDaMediaNaTela(resultadoDaMedia);
 }
 
-float obtemOPrimeiroNumeroDoUsuario(){
-    float primeiroNumero;
-    printf("Informe o primeiro numero: ");
-    scanf("%f", &primeiroNumero);
-    return primeiroNumero; 
+float obtemAPrimeiraNotaInformadaPeloUsuario(){
+    float primeiraNota;
+    printf("Informe a primeira nota: ");
+    scanf("%f", &primeiraNota);
+    return primeiraNota; 
 }
 
-float obtemOSegundoNumeroDoUsuario(){
-    float segundoNumero;
-    printf("Informe o segundo numero: ");
-    scanf("%f", &segundoNumero);
-    return segundoNumero; 
+float obtemASegundaNotaInformadaPeloUsuario(){
+    float segundaNota;
+    printf("Informe a segunda nota: ");
+    scanf("%f", &segundaNota);
+    return segundaNota; 
 }
 
-float obtemOTerceiroNumeroDoUsuario(){
-    float terceiroNumero;
-    printf("Informe o terceiro numero: ");
-    scanf("%f", &terceiroNumero);
-    return terceiroNumero; 
+float obtemATerceiraNotaInformadaPeloUsuario(){
+    float terceiraNota;
+    printf("Informe a terceira nota: ");
+    scanf("%f", &terceiraNota);
+    return terceiraNota; 
 }
 
-float calcularMedia(int primeiroNumero, int segundoNumero, int terceiroNumero) {
-    return (primeiroNumero + segundoNumero + terceiroNumero) / 3;
+float calcularMedia(float primeiraNota, float segundaNota, float terceiraNota) {
+    return (primeiraNota + segundaNota + terceiraNota) / 3;
 }
 
 void mostrarResultadoDaMediaNaTela(float resultadoDaMedia){
-    printf("O resultado da media com base nos 3 valores informados e: %.2f \n", resultadoDaMedia);
+    printf("O resultado da media com base nas 3 notas informadas eh: %.2f \n", resultadoDaMedia);
 }

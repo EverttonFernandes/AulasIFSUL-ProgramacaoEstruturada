@@ -35,3 +35,9 @@ int main() {
     return 0;
 }
 
+void exibirMensagem(char nome[], int tamanhoMaximo) {
+    printf("Bem-vindo, ");
+    for (int i = 0; i < tamanhoMaximo; i++) {
+        printf("%c", nome[i]);
+    }
+}
