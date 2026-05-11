@@ -14,10 +14,12 @@ pode orientar a manter apenas isalpha que retorna true para letras acentuadas de
 #include<stdio.h>
 #include<string.h>
 #include<ctype.h>
-
+#include<locale.h>
 int removerNaoAlfabeticos(char * texto, int tamanho);
 
 int main(){
+    setlocale(LC_ALL, "Portuguese");
+    
     int tamanhoMaximo = 50;
     char texto[tamanhoMaximo];
     int letraInformada;
@@ -49,6 +51,5 @@ int removerNaoAlfabeticos(char *ponteiroComOTextoOriginal, int tamanho){
     }
 
     *novoPonteiroComApenasCaracteresAlfabeticos = '\0';
-    ponteiroComOTextoOriginal = novoPonteiroComApenasCaracteresAlfabeticos;
     return contadorDeCaracteresRemovidos;
 }

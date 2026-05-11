@@ -14,29 +14,29 @@ Exemplo: [ -1.5, 2.0, -3.3, 0.1 ] → [ 2.0, 0.1, 0.0, 0.0 ], novo tamanho: 2.
 int removerNegativos(float *ponteiroComOsValoresOriginais, int tamanho);
 
 int main(){
-    int tamanhoMaximo;
-    float valores[tamanhoMaximo];
+    int tamanhoMaximoDoVetor;
+    float valores[tamanhoMaximoDoVetor];
 
     printf("Quantos valores tu deseja ter no vetor float? ");
-    scanf("%d", &tamanhoMaximo);
+    scanf("%d", &tamanhoMaximoDoVetor);
 
-    for(int indice = 0; indice < tamanhoMaximo; indice++){
-        printf("Valor %d: ", indice + 1);
-        scanf("%f", &valores[indice]);
+    for(int indiceDoVetor = 0; indiceDoVetor < tamanhoMaximoDoVetor; indiceDoVetor++){
+        printf("Valor %d: ", indiceDoVetor + 1);
+        scanf("%f", &valores[indiceDoVetor]);
     }
 
     printf("Valores originais: ");
-    for(int indice = 0; indice < tamanhoMaximo; indice++){
-        printf("%.1f ", valores[indice]);
+    for(int indiceDoVetor = 0; indiceDoVetor < tamanhoMaximoDoVetor; indiceDoVetor++){
+        printf("%.1f ", valores[indiceDoVetor]);
     }
     printf("\n");
 
-    int quantidadeDeNaoNegativos = removerNegativos(valores, tamanhoMaximo);
+    int quantidadeDeNaoNegativos = removerNegativos(valores, tamanhoMaximoDoVetor);
 
     printf("Quantidade de numeros >= 0: %d\n", quantidadeDeNaoNegativos);
     
     printf("Vetor apos remocao dos negativos: ");
-    for(int indice = 0; indice < tamanhoMaximo; indice++){
+    for(int indice = 0; indice < tamanhoMaximoDoVetor; indice++){
         printf("%.1f ", valores[indice]);
     }
     
