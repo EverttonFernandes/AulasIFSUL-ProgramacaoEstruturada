@@ -19,7 +19,7 @@ Sem variáveis globais.
 int fatorial(int numero);
 
 int main(){
-    printf("O resultado da fatorial do numero informado eh : %i" , fatorial(5));
+    printf("O resultado da fatorial do numero informado eh : %i\n" , fatorial(5));
 }
 
 int fatorial(int numero){
@@ -28,7 +28,13 @@ int fatorial(int numero){
         return 1;
     }
 
-    return numero * fatorial(numero - 1);
+    int fatorialAnterior = fatorial(numero - 1);
+    return numero * fatorialAnterior;
 
+    //1x1
+    //2x1
+    //3x2
+    //4x6
+    //5x24
 }
 
