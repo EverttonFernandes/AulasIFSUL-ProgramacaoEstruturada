@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/everton/AulasIFSUL/AulasIFSUL-ProgramacaoEstruturada/Aulas-2026-1/Aula13ExerciciosRecursividade",
-      "program": "/home/everton/AulasIFSUL/AulasIFSUL-ProgramacaoEstruturada/Aulas-2026-1/Aula13ExerciciosRecursividade/build/Debug/outDebug",
+      "cwd": "/home/everton/AulasIFSUL/AulasIFSUL-ProgramacaoEstruturada/Aulas-2026-1/Aula14UltimaListaDeExerciciosAntesDaProvaPratica",
+      "program": "/home/everton/AulasIFSUL/AulasIFSUL-ProgramacaoEstruturada/Aulas-2026-1/Aula14UltimaListaDeExerciciosAntesDaProvaPratica/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
